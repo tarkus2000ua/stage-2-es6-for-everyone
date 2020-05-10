@@ -21,7 +21,6 @@ export async function fight(firstFighter, secondFighter) {
           playerOneAttackPressed = true;
           let damage = getDamage(firstFighter, secondFighter);
           secondFighter.health -= damage;
-          // secondFighterHealthPercents = Math.round(secondFighter.health*rightIndicatorRate)>0?Math.round(secondFighter.health*rightIndicatorRate):0;
           secondFighterHealthPercents = Math.round(secondFighter.health*rightIndicatorRate);
           secondFighterHealthPercents = secondFighterHealthPercents>0?secondFighterHealthPercents:0;
           rightHealthIndicator.style.width = secondFighterHealthPercents + '%';
@@ -76,7 +75,6 @@ export function getDamage(attacker, defender) {
   const hitPower = getHitPower(attacker);
   const blockPower = getBlockPower(defender);
   const damage = hitPower > blockPower ? hitPower - blockPower : 0;
-  // debugger;
   return damage;
 }
 

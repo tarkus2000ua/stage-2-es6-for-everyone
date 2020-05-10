@@ -8,13 +8,11 @@ export function createFightersSelector() {
   let selectedFighters = [];
 
   return async (event, fighterId) => {
-    // debugger;
     const fighter = await getFighterInfo(fighterId);
     const [playerOne, playerTwo] = selectedFighters;
     const firstFighter = playerOne ?? fighter;
     const secondFighter = Boolean(playerOne) ? playerTwo ?? fighter : playerTwo;
     selectedFighters = [firstFighter, secondFighter];
-    // console.log(fighter);
 
     renderSelectedFighters(selectedFighters);
   };
@@ -28,8 +26,6 @@ export async function getFighterInfo(fighterId) {
       for (let prop in fighter){
         fighterDetailsMap.set(prop,fighter[prop]);
       }
-      // console.log(fighterDetailsMap);
-      // return fighterDetailsMap;
       return fighter;
   
 }
