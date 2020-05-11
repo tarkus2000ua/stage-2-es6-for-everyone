@@ -12,6 +12,7 @@ export function showWinnerModal(fighter) {
   bodyElement.appendChild(fighterName);
   const fighterImg = createFighterImage(fighter);
   bodyElement.appendChild(fighterImg);
-  const closeHandler = () => {window.location = '../../../../index.html'};
-  showModal({ title:'The winner is:', bodyElement, closeHandler});
+  const onClose = () => {window.location.reload(false)};
+  
+  showModal({ title:'The winner is:', bodyElement, onClose});
 }
